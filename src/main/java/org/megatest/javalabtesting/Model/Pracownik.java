@@ -1,9 +1,16 @@
 package org.megatest.javalabtesting.Model;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
+@Getter
+@Setter
 public abstract class  Pracownik<T> implements Serializable {
     private static Set<String> uniquePesels = new HashSet<>();
 
@@ -13,6 +20,9 @@ public abstract class  Pracownik<T> implements Serializable {
     protected float wynagrodzenie;
     protected String phoneNumber;
     protected T custom;
+
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     protected Roles stanowisko = Roles.PRACOWNIK;
 
     public Pracownik() {}
@@ -57,5 +67,16 @@ public abstract class  Pracownik<T> implements Serializable {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pracownik<?> pracownik = (Pracownik<?>) o;
+        return Float.compare(wynagrodzenie, pracownik.wynagrodzenie) == 0 && Objects.equals(pesel, pracownik.pesel) && Objects.equals(firstName, pracownik.firstName) && Objects.equals(secondName, pracownik.secondName) && Objects.equals(phoneNumber, pracownik.phoneNumber) && stanowisko == pracownik.stanowisko;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(pesel, firstName, secondName, wynagrodzenie, phoneNumber, stanowisko);
+    }
 }

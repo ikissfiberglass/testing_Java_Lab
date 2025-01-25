@@ -1,5 +1,7 @@
 package org.megatest.javalabtesting.Model;
 
+import org.megatest.javalabtesting.View.ViewImpl;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +41,7 @@ public class PracownikRepository implements Serializable {
                 return pracownik;
             }
         }
+        view.displayError("PRACOWNIK NOT FOUND, RETURNING NULL");
         return null;
     }
 

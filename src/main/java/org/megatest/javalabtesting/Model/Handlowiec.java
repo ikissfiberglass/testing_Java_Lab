@@ -1,16 +1,33 @@
 package org.megatest.javalabtesting.Model;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Objects;
+
+@Setter
+@Getter
 
 public class Handlowiec extends Pracownik {
+
+
     private BigDecimal stawkaProwizji;
+
     private BigDecimal limitProwizjiMiesiac;
+
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     private Roles stanowisko = Roles.HANDLOWIEC;
 
     public void setStawkaProwizji(BigDecimal stawkaProcentowa){
         this.stawkaProwizji = stawkaProcentowa;
     }
+
+    public Handlowiec(){}
 
     public Handlowiec(String pesel, String firstName, String secondName, float wynagrodzenie, String phoneNumber, BigDecimal stawkaProwizji, BigDecimal limitProwizjiMiesiac) {
         super(pesel, firstName, secondName, wynagrodzenie, phoneNumber);
@@ -32,5 +49,15 @@ public class Handlowiec extends Pracownik {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Handlowiec that)) return false;
+        return Objects.equals(stawkaProwizji, that.stawkaProwizji) && Objects.equals(limitProwizjiMiesiac, that.limitProwizjiMiesiac) && stanowisko == that.stanowisko;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(stawkaProwizji, limitProwizjiMiesiac, stanowisko);
+    }
 }
