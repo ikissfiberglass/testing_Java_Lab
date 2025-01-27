@@ -2,6 +2,7 @@ package org.megatest.javalabtesting.Model;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
@@ -9,6 +10,7 @@ import java.math.RoundingMode;
 
 @Getter(AccessLevel.PACKAGE)
 @Setter(AccessLevel.PACKAGE)
+@NoArgsConstructor
 public class Dyrektor extends Pracownik{
     private BigDecimal dodatekSluzbowy;
     private String kartaSluzbowa;

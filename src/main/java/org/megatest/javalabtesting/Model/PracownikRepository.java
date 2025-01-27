@@ -76,6 +76,8 @@ public class PracownikRepository implements Serializable {
         }
     }
 
+
+
     public void concatenate(ArrayList<Pracownik> localList){
         pracownicy.addAll(localList);
     }

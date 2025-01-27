@@ -31,40 +31,41 @@ public abstract class  Pracownik<T> implements Serializable {
         if(!uniquePesels.add(pesel)){
             throw new IllegalArgumentException("PESEL [" + pesel + "] musi być wyjątkowy");
         }
+
         this.pesel = pesel;
         this.firstName = firstName;
         this.secondName = secondName;
         this.wynagrodzenie = wynagrodzenie;
         this.phoneNumber = phoneNumber;
     }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
-
-    public void setCustom(T custom) {
-        this.custom = custom;
-    }
-
-    public String getPesel() {
-        return pesel;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public void setPesel(String pesel){
-        this.pesel = pesel;
-    }
+//
+//    public void setFirstName(String firstName) {
+//        this.firstName = firstName;
+//    }
+//
+//    public void setSecondName(String secondName) {
+//        this.secondName = secondName;
+//    }
+//
+//    public void setCustom(T custom) {
+//        this.custom = custom;
+//    }
+//
+//    public String getPesel() {
+//        return pesel;
+//    }
+//
+//    public String getFirstName() {
+//        return firstName;
+//    }
+//
+//    public String getSecondName() {
+//        return secondName;
+//    }
+//
+//    public void setPesel(String pesel){
+//        this.pesel = pesel;
+//    }
 
 
     @Override

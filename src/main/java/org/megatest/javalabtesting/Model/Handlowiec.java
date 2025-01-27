@@ -11,29 +11,20 @@ import java.util.Objects;
 
 @Setter
 @Getter
-
+@NoArgsConstructor
 public class Handlowiec extends Pracownik {
 
-
     private BigDecimal stawkaProwizji;
-
     private BigDecimal limitProwizjiMiesiac;
 
-    @Getter(AccessLevel.NONE)
-    @Setter(AccessLevel.NONE)
     private Roles stanowisko = Roles.HANDLOWIEC;
 
-    public void setStawkaProwizji(BigDecimal stawkaProcentowa){
-        this.stawkaProwizji = stawkaProcentowa;
-    }
-
-    public Handlowiec(){}
 
     public Handlowiec(String pesel, String firstName, String secondName, float wynagrodzenie, String phoneNumber, BigDecimal stawkaProwizji, BigDecimal limitProwizjiMiesiac) {
         super(pesel, firstName, secondName, wynagrodzenie, phoneNumber);
         this.stawkaProwizji = stawkaProwizji;
         this.limitProwizjiMiesiac = limitProwizjiMiesiac;
-        this.stanowisko = stanowisko;
+//        this.stanowisko = stanowisko;
     }
 
     @Override
